@@ -3,7 +3,7 @@ import { Heart, Star, Sparkles, Cloud } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background selection:bg-primary/30 py-8 px-4 flex flex-col items-center justify-center relative overflow-hidden">
+    <main className="min-h-screen bg-background selection:bg-primary/30 py-4 px-4 flex flex-col items-center justify-center relative overflow-hidden">
       {/* Decorative blurred background elements */}
       <div className="fixed top-[-5%] left-[-5%] w-[30vw] h-[30vw] bg-accent/10 rounded-full blur-[100px] -z-10 animate-pulse" />
       <div className="fixed bottom-[-5%] right-[-5%] w-[40vw] h-[40vw] bg-secondary/10 rounded-full blur-[120px] -z-10 animate-pulse" />
@@ -29,13 +29,13 @@ export default function Home() {
         <Cloud className="w-16 h-16 fill-current" />
       </div>
       
-      <div className="w-full max-w-lg z-10">
+      <div className="w-full max-w-md z-10">
         <GameContainer />
       </div>
       
-      <footer className="mt-12 text-muted-foreground text-sm font-medium flex items-center gap-2">
+      <footer className="mt-6 text-muted-foreground text-xs font-medium flex items-center gap-2">
         <span>Made with</span>
-        <Heart className="w-4 h-4 text-accent fill-accent animate-bounce" />
+        <Heart className="w-3 h-3 text-accent fill-accent animate-bounce" />
         <span>for Pookie</span>
       </footer>
     </main>

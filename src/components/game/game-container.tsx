@@ -115,48 +115,43 @@ export function GameContainer() {
   const hasWinner = !!checkWinner(board);
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 w-full">
-      <div className="text-center mb-8 relative">
-        <div className="absolute -top-6 -right-6 text-accent animate-pulse">
-          <Sparkles className="w-6 h-6" />
+    <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+      <div className="text-center mb-4 relative">
+        <div className="absolute -top-4 -right-4 text-accent animate-pulse">
+          <Sparkles className="w-4 h-4" />
         </div>
-        <div className="absolute -bottom-4 -left-6 text-primary animate-bounce">
-          <Heart className="w-5 h-5 fill-current" />
+        <div className="flex items-center justify-center gap-2 mb-1">
+          <Heart className="w-6 h-6 text-accent fill-accent" />
+          <h1 className="text-2xl font-extrabold text-foreground tracking-tight">Pookie Plays</h1>
         </div>
-        <div className="flex items-center justify-center gap-3 mb-2">
-          <div className="bg-accent/20 p-2 rounded-2xl">
-            <Heart className="w-8 h-8 text-accent fill-accent" />
-          </div>
-          <h1 className="text-4xl font-extrabold text-foreground tracking-tight">Pookie Plays</h1>
-        </div>
-        <p className="text-muted-foreground font-semibold">Cute. Sassy. Unbeatable? 💖</p>
+        <p className="text-xs text-muted-foreground font-semibold">Cute. Sassy. Unbeatable? 💖</p>
       </div>
 
-      <div className="mb-8 w-full flex flex-col items-center gap-4">
+      <div className="mb-4 w-full flex flex-col items-center">
          <Tabs 
             value={difficulty} 
             onValueChange={(v) => setDifficulty(v as Difficulty)} 
-            className="w-full max-w-[280px]"
+            className="w-full max-w-[240px]"
           >
-          <TabsList className="grid w-full grid-cols-3 bg-white/60 backdrop-blur-sm border-2 border-primary/10 rounded-full h-11 p-1 pookie-shadow">
+          <TabsList className="grid w-full grid-cols-3 bg-white/60 backdrop-blur-sm border-2 border-primary/10 rounded-full h-9 p-1 pookie-shadow">
             <TabsTrigger 
               value="Easy" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold uppercase tracking-wider"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[10px] font-bold uppercase tracking-wider h-7"
             >
               Easy
             </TabsTrigger>
             <TabsTrigger 
               value="Medium" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold uppercase tracking-wider"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[10px] font-bold uppercase tracking-wider h-7"
             >
               Mid
             </TabsTrigger>
             <TabsTrigger 
               value="Hard" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold uppercase tracking-wider"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[10px] font-bold uppercase tracking-wider h-7"
             >
               Hard
             </TabsTrigger>
@@ -166,7 +161,7 @@ export function GameContainer() {
 
       <GameStatus status={gameStatus} isThinking={isThinking} />
 
-      <div className="grid grid-cols-3 gap-4 w-full aspect-square bg-white/40 backdrop-blur-md p-6 rounded-[2.5rem] pookie-shadow border-4 border-white relative overflow-hidden">
+      <div className="grid grid-cols-3 gap-2 w-full aspect-square bg-white/40 backdrop-blur-md p-4 rounded-[1.5rem] pookie-shadow border-2 border-white relative overflow-hidden">
         {/* Board background subtle texture */}
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none pookie-gradient" />
         
@@ -183,14 +178,14 @@ export function GameContainer() {
 
       <AiCommentary commentary={commentary} isLoading={isCommentaryLoading} />
 
-      <div className="mt-12">
+      <div className="mt-6">
         <Button
           onClick={resetGame}
           variant="default"
-          size="lg"
-          className="rounded-full px-10 py-7 text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 bg-primary text-primary-foreground border-b-4 border-primary/30"
+          size="default"
+          className="rounded-full px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 bg-primary text-primary-foreground border-b-4 border-primary/30 h-auto"
         >
-          <RotateCcw className="mr-3 h-6 w-6" />
+          <RotateCcw className="mr-2 h-5 w-5" />
           Play Again
         </Button>
       </div>
