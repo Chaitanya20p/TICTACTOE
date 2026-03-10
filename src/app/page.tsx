@@ -22,9 +22,9 @@ export default function Home() {
         <Star className="w-6 h-6 fill-current" />
       </div>
       
-      <div className="w-full max-w-7xl flex items-center justify-center gap-4 sm:gap-8 md:gap-12 z-10 px-4">
+      <div className="w-full max-w-[1400px] flex items-center justify-center gap-4 md:gap-12 lg:gap-24 z-10 px-4">
         {/* Left Side Heart Image */}
-        <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white -rotate-[6deg] shrink-0">
+        <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white -rotate-[8deg] shrink-0 opacity-80 hover:opacity-100 transition-opacity">
           {heartLeft && (
             <Image 
               src={heartLeft.imageUrl} 
@@ -36,13 +36,13 @@ export default function Home() {
           )}
         </div>
 
-        {/* Game Container - Larger max-width */}
-        <div className="w-full max-w-[320px] sm:max-w-md shrink-0">
+        {/* Game Container - Center Focus */}
+        <div className="w-full max-w-[320px] sm:max-w-[480px] shrink-0">
           <GameContainer />
         </div>
 
         {/* Right Side Heart Image */}
-        <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[6deg] shrink-0">
+        <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[8deg] shrink-0 opacity-80 hover:opacity-100 transition-opacity">
           {heartRight && (
             <Image 
               src={heartRight.imageUrl} 
