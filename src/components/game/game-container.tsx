@@ -6,8 +6,9 @@ import { GameStatus } from "./game-status";
 import { AiCommentary } from "./ai-commentary";
 import { Button } from "@/components/ui/button";
 import { RotateCcw, Heart } from "lucide-react";
-import { checkWinner, getBestMove, WIN_COMBINATIONS } from "@/lib/game-logic";
+import { checkWinner, getBestMove, WIN_COMBINATIONS, type Difficulty } from "@/lib/game-logic";
 import { aiGameCommentary } from "@/ai/flows/ai-game-commentary-flow";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function GameContainer() {
   const [board, setBoard] = useState<string[]>(Array(9).fill(""));
@@ -19,6 +20,7 @@ export function GameContainer() {
   const [winningCombo, setWinningCombo] = useState<number[] | null>(null);
   const [lastPlayerMove, setLastPlayerMove] = useState<string | undefined>(undefined);
   const [lastAiMove, setLastAiMove] = useState<string | undefined>(undefined);
+  const [difficulty, setDifficulty] = useState<Difficulty>("Medium");
 
   const resetGame = () => {
     setBoard(Array(9).fill(""));
@@ -89,7 +91,7 @@ export function GameContainer() {
   useEffect(() => {
     if (!isXNext && !winningCombo && gameStatus === "AI Thinking...") {
       const timer = setTimeout(() => {
-        const aiMove = getBestMove(board);
+        const aiMove = getBestMove(board, difficulty);
         const newBoard = [...board];
         newBoard[aiMove] = "O";
         setBoard(newBoard);
@@ -107,7 +109,10 @@ export function GameContainer() {
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [isXNext, board, winningCombo, gameStatus, lastPlayerMove, updateCommentary]);
+  }, [isXNext, board, winningCombo, gameStatus, lastPlayerMove, updateCommentary, difficulty]);
+
+  const isGameActive = board.some(cell => cell !== "");
+  const hasWinner = !!checkWinner(board);
 
   return (
     <div className="flex flex-col items-center justify-center p-4 max-w-lg mx-auto min-h-[80vh]">
@@ -117,6 +122,38 @@ export function GameContainer() {
           <h1 className="text-4xl font-bold text-foreground">Pookie Plays</h1>
         </div>
         <p className="text-muted-foreground font-medium">The cutest Tic-Tac-Toe ever!</p>
+      </div>
+
+      <div className="mb-6 w-full flex flex-col items-center gap-4">
+         <Tabs 
+            value={difficulty} 
+            onValueChange={(v) => setDifficulty(v as Difficulty)} 
+            className="w-full max-w-[300px]"
+          >
+          <TabsList className="grid w-full grid-cols-3 bg-white/50 border border-primary/20 rounded-full h-10 p-1">
+            <TabsTrigger 
+              value="Easy" 
+              disabled={isGameActive && !hasWinner} 
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold"
+            >
+              Easy
+            </TabsTrigger>
+            <TabsTrigger 
+              value="Medium" 
+              disabled={isGameActive && !hasWinner} 
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold"
+            >
+              Medium
+            </TabsTrigger>
+            <TabsTrigger 
+              value="Hard" 
+              disabled={isGameActive && !hasWinner} 
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold"
+            >
+              Hard
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
       </div>
 
       <GameStatus status={gameStatus} isThinking={isThinking} />

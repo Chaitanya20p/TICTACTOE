@@ -1,5 +1,6 @@
 export type Player = 'X' | 'O' | null;
 export type GameResult = 'X' | 'O' | 'Draw' | null;
+export type Difficulty = 'Easy' | 'Medium' | 'Hard';
 
 export const WIN_COMBINATIONS = [
   [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
@@ -53,11 +54,27 @@ function minimax(board: string[], depth: number, isMaximizing: boolean): number 
   }
 }
 
-export function getBestMove(board: string[]): number {
+export function getBestMove(board: string[], difficulty: Difficulty = 'Hard'): number {
+  const availableMoves = board
+    .map((val, idx) => (val === "" ? idx : null))
+    .filter((val) => val !== null) as number[];
+
+  if (availableMoves.length === 0) return -1;
+
+  if (difficulty === 'Easy') {
+    return availableMoves[Math.floor(Math.random() * availableMoves.length)];
+  }
+
+  if (difficulty === 'Medium') {
+    // 40% chance of making a random move instead of optimal
+    if (Math.random() < 0.4) {
+      return availableMoves[Math.floor(Math.random() * availableMoves.length)];
+    }
+  }
+
   let bestScore = -Infinity;
   let move = -1;
   
-  // Try to find a winning move or optimal move
   for (let i = 0; i < 9; i++) {
     if (board[i] === "") {
       board[i] = "O";
