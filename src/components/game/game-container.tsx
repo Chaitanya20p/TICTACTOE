@@ -5,7 +5,7 @@ import { Cell } from "./cell";
 import { GameStatus } from "./game-status";
 import { AiCommentary } from "./ai-commentary";
 import { Button } from "@/components/ui/button";
-import { RotateCcw, Heart } from "lucide-react";
+import { RotateCcw, Heart, Sparkles } from "lucide-react";
 import { checkWinner, getBestMove, WIN_COMBINATIONS, type Difficulty } from "@/lib/game-logic";
 import { aiGameCommentary } from "@/ai/flows/ai-game-commentary-flow";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -31,7 +31,7 @@ export function GameContainer() {
     setWinningCombo(null);
     setLastPlayerMove(undefined);
     setLastAiMove(undefined);
-    setCommentary("Fresh start! Ready to lose? Just kidding! ✨");
+    setCommentary("Fresh start! Ready for some fun? ✨");
   };
 
   const updateCommentary = useCallback(async (currentBoard: string[], currentStatus: string, playerM?: string, aiM?: string) => {
@@ -64,7 +64,7 @@ export function GameContainer() {
     if (result) {
       finishGame(result, newBoard, index.toString(), undefined);
     } else {
-      setGameStatus("AI Thinking...");
+      setGameStatus("Pookie is thinking...");
       setIsThinking(true);
       updateCommentary(newBoard, "AI Thinking...", index.toString(), undefined);
     }
@@ -73,15 +73,15 @@ export function GameContainer() {
   const finishGame = (result: string, finalBoard: string[], playerM?: string, aiM?: string) => {
     let finalStatus = "";
     if (result === "X") {
-      finalStatus = "You Win!";
+      finalStatus = "You Win! 🎉";
       const combo = WIN_COMBINATIONS.find(c => finalBoard[c[0]] === "X" && finalBoard[c[0]] === finalBoard[c[1]] && finalBoard[c[0]] === finalBoard[c[2]]);
       if (combo) setWinningCombo(combo);
     } else if (result === "O") {
-      finalStatus = "AI Wins!";
+      finalStatus = "Pookie Wins! ✨";
       const combo = WIN_COMBINATIONS.find(c => finalBoard[c[0]] === "O" && finalBoard[c[0]] === finalBoard[c[1]] && finalBoard[c[0]] === finalBoard[c[2]]);
       if (combo) setWinningCombo(combo);
     } else {
-      finalStatus = "Draw!";
+      finalStatus = "It's a Draw! 🤝";
     }
     setGameStatus(finalStatus);
     setIsThinking(false);
@@ -89,7 +89,7 @@ export function GameContainer() {
   };
 
   useEffect(() => {
-    if (!isXNext && !winningCombo && gameStatus === "AI Thinking...") {
+    if (!isXNext && !winningCombo && gameStatus === "Pookie is thinking...") {
       const timer = setTimeout(() => {
         const aiMove = getBestMove(board, difficulty);
         const newBoard = [...board];
@@ -106,7 +106,7 @@ export function GameContainer() {
           setGameStatus("Your Turn");
           updateCommentary(newBoard, "Your Turn", lastPlayerMove, aiMove.toString());
         }
-      }, 1000);
+      }, 1200);
       return () => clearTimeout(timer);
     }
   }, [isXNext, board, winningCombo, gameStatus, lastPlayerMove, updateCommentary, difficulty]);
@@ -115,40 +115,48 @@ export function GameContainer() {
   const hasWinner = !!checkWinner(board);
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 max-w-lg mx-auto min-h-[80vh]">
-      <div className="text-center mb-8">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <Heart className="w-8 h-8 text-accent fill-accent" />
-          <h1 className="text-4xl font-bold text-foreground">Pookie Plays</h1>
+    <div className="flex flex-col items-center justify-center p-4 w-full">
+      <div className="text-center mb-8 relative">
+        <div className="absolute -top-6 -right-6 text-accent animate-pulse">
+          <Sparkles className="w-6 h-6" />
         </div>
-        <p className="text-muted-foreground font-medium">The cutest Tic-Tac-Toe ever!</p>
+        <div className="absolute -bottom-4 -left-6 text-primary animate-bounce">
+          <Heart className="w-5 h-5 fill-current" />
+        </div>
+        <div className="flex items-center justify-center gap-3 mb-2">
+          <div className="bg-accent/20 p-2 rounded-2xl">
+            <Heart className="w-8 h-8 text-accent fill-accent" />
+          </div>
+          <h1 className="text-4xl font-extrabold text-foreground tracking-tight">Pookie Plays</h1>
+        </div>
+        <p className="text-muted-foreground font-semibold">Cute. Sassy. Unbeatable? 💖</p>
       </div>
 
-      <div className="mb-6 w-full flex flex-col items-center gap-4">
+      <div className="mb-8 w-full flex flex-col items-center gap-4">
          <Tabs 
             value={difficulty} 
             onValueChange={(v) => setDifficulty(v as Difficulty)} 
-            className="w-full max-w-[300px]"
+            className="w-full max-w-[280px]"
           >
-          <TabsList className="grid w-full grid-cols-3 bg-white/50 border border-primary/20 rounded-full h-10 p-1">
+          <TabsList className="grid w-full grid-cols-3 bg-white/60 backdrop-blur-sm border-2 border-primary/10 rounded-full h-11 p-1 pookie-shadow">
             <TabsTrigger 
               value="Easy" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold uppercase tracking-wider"
             >
               Easy
             </TabsTrigger>
             <TabsTrigger 
               value="Medium" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold uppercase tracking-wider"
             >
-              Medium
+              Mid
             </TabsTrigger>
             <TabsTrigger 
               value="Hard" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-xs font-bold uppercase tracking-wider"
             >
               Hard
             </TabsTrigger>
@@ -158,7 +166,10 @@ export function GameContainer() {
 
       <GameStatus status={gameStatus} isThinking={isThinking} />
 
-      <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full aspect-square bg-primary/5 p-4 sm:p-6 rounded-[2rem] pookie-shadow border-4 border-white">
+      <div className="grid grid-cols-3 gap-4 w-full aspect-square bg-white/40 backdrop-blur-md p-6 rounded-[2.5rem] pookie-shadow border-4 border-white relative overflow-hidden">
+        {/* Board background subtle texture */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none pookie-gradient" />
+        
         {board.map((val, idx) => (
           <Cell
             key={idx}
@@ -177,10 +188,10 @@ export function GameContainer() {
           onClick={resetGame}
           variant="default"
           size="lg"
-          className="rounded-full px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 bg-primary text-primary-foreground"
+          className="rounded-full px-10 py-7 text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 bg-primary text-primary-foreground border-b-4 border-primary/30"
         >
-          <RotateCcw className="mr-2 h-5 w-5" />
-          Restart Game
+          <RotateCcw className="mr-3 h-6 w-6" />
+          Play Again
         </Button>
       </div>
     </div>
