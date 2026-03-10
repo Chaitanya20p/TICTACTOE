@@ -6,6 +6,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Home() {
   const pookiePuppy = PlaceHolderImages.find(img => img.id === 'pookie-fluffy-puppy');
+  const barbetGarden = PlaceHolderImages.find(img => img.id === 'barbet-garden');
 
   return (
     <main className="min-h-screen bg-background selection:bg-primary/30 py-4 px-4 flex flex-col items-center justify-center relative overflow-hidden">
@@ -21,14 +22,27 @@ export default function Home() {
         <Star className="w-10 h-10 fill-current" />
       </div>
       
-      <div className="w-full max-w-5xl flex flex-col lg:flex-row items-center justify-center gap-8 z-10">
+      <div className="w-full max-w-[1400px] flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-16 z-10">
+        {/* Left Side Image - Barbet in garden */}
+        <div className="hidden lg:block w-48 h-72 xl:w-64 xl:h-96 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white -rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+          {barbetGarden && (
+            <Image 
+              src={barbetGarden.imageUrl} 
+              alt={barbetGarden.description} 
+              fill 
+              className="object-cover"
+              data-ai-hint={barbetGarden.imageHint}
+            />
+          )}
+        </div>
+
         {/* Game Container */}
-        <div className="order-2 lg:order-1 w-full max-w-xs sm:max-w-sm md:max-w-md">
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
           <GameContainer />
         </div>
 
         {/* Right Side Image - The fluffy puppy */}
-        <div className="order-1 lg:order-2 w-48 h-72 sm:w-56 sm:h-80 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[2deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+        <div className="w-48 h-72 xl:w-64 xl:h-96 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
           {pookiePuppy && (
             <Image 
               src={pookiePuppy.imageUrl} 
@@ -41,7 +55,7 @@ export default function Home() {
         </div>
       </div>
       
-      <footer className="mt-4 text-muted-foreground text-[10px] font-medium flex items-center gap-1.5 opacity-60">
+      <footer className="mt-6 text-muted-foreground text-[10px] font-medium flex items-center gap-1.5 opacity-60">
         <span>Made with</span>
         <Heart className="w-2.5 h-2.5 text-accent fill-accent animate-bounce" />
         <span>for Pookie</span>
