@@ -22,9 +22,9 @@ export default function Home() {
         <Star className="w-6 h-6 fill-current" />
       </div>
       
-      <div className="w-full max-w-6xl flex items-center justify-center gap-2 sm:gap-4 md:gap-8 z-10">
-        {/* Left Side Heart Image - smaller and visible sooner */}
-        <div className="hidden xs:block w-16 h-24 sm:w-24 sm:h-36 lg:w-32 lg:h-48 relative rounded-2xl overflow-hidden pookie-shadow border-4 border-white -rotate-[4deg] shrink-0">
+      <div className="w-full max-w-7xl flex items-center justify-center gap-4 sm:gap-8 md:gap-12 z-10 px-4">
+        {/* Left Side Heart Image */}
+        <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white -rotate-[6deg] shrink-0">
           {heartLeft && (
             <Image 
               src={heartLeft.imageUrl} 
@@ -36,13 +36,13 @@ export default function Home() {
           )}
         </div>
 
-        {/* Game Container */}
-        <div className="w-full max-w-[280px] sm:max-w-sm shrink-0">
+        {/* Game Container - Larger max-width */}
+        <div className="w-full max-w-[320px] sm:max-w-md shrink-0">
           <GameContainer />
         </div>
 
-        {/* Right Side Heart Image - smaller and visible sooner */}
-        <div className="hidden xs:block w-16 h-24 sm:w-24 sm:h-36 lg:w-32 lg:h-48 relative rounded-2xl overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] shrink-0">
+        {/* Right Side Heart Image */}
+        <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[6deg] shrink-0">
           {heartRight && (
             <Image 
               src={heartRight.imageUrl} 
@@ -55,9 +55,9 @@ export default function Home() {
         </div>
       </div>
       
-      <footer className="absolute bottom-2 text-muted-foreground text-[8px] font-medium flex items-center gap-1 opacity-60">
+      <footer className="absolute bottom-4 text-muted-foreground text-[10px] font-medium flex items-center gap-1 opacity-60">
         <span>Made with</span>
-        <Heart className="w-2 h-2 text-accent fill-accent animate-bounce" />
+        <Heart className="w-3 h-3 text-accent fill-accent animate-bounce" />
         <span>for Pookie</span>
       </footer>
     </main>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -16,7 +17,7 @@ export function Cell({ value, onClick, disabled, isWinner }: CellProps) {
       onClick={onClick}
       disabled={disabled || value !== ""}
       className={cn(
-        "relative aspect-square flex items-center justify-center text-4xl sm:text-5xl rounded-2xl bg-white transition-all duration-300 pookie-cell-hover pookie-shadow",
+        "relative aspect-square flex items-center justify-center rounded-2xl bg-white transition-all duration-300 pookie-cell-hover pookie-shadow",
         isWinner && "bg-primary text-white scale-105 z-10",
         value === "" && !disabled && "hover:bg-muted/50 cursor-pointer",
         value !== "" && "cursor-default"
@@ -24,12 +25,12 @@ export function Cell({ value, onClick, disabled, isWinner }: CellProps) {
     >
       {value === "X" && (
         <div className="animate-pop-in flex items-center justify-center">
-          <X className={cn("w-12 h-12 sm:w-16 sm:h-16 stroke-[3px]", isWinner ? "text-white" : "text-secondary")} />
+          <X className={cn("w-16 h-16 sm:w-24 sm:h-24 stroke-[4px]", isWinner ? "text-white" : "text-secondary")} />
         </div>
       )}
       {value === "O" && (
         <div className="animate-pop-in flex items-center justify-center">
-          <Circle className={cn("w-10 h-10 sm:w-14 sm:h-14 stroke-[4px]", isWinner ? "text-white" : "text-primary")} />
+          <Circle className={cn("w-14 h-14 sm:w-20 sm:h-20 stroke-[5px]", isWinner ? "text-white" : "text-primary")} />
         </div>
       )}
     </button>
