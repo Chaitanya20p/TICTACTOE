@@ -1,27 +1,15 @@
 {
   "placeholderImages": [
     {
-      "id": "pookie-fluffy-puppy",
-      "description": "A very cute fluffy cream colored puppy looking up curiously",
-      "imageUrl": "https://picsum.photos/seed/fluffy-puppy-cute/400/600",
-      "imageHint": "fluffy puppy"
-    },
-    {
-      "id": "barbet-garden",
-      "description": "A brown curly French Barbet puppy lying on a green lawn in a garden",
-      "imageUrl": "https://picsum.photos/seed/barbet-dog-garden/600/400",
-      "imageHint": "barbet garden"
-    },
-    {
-      "id": "barbet-puppy-1",
-      "description": "A cute French Barbet puppy with curly fur",
-      "imageUrl": "https://picsum.photos/seed/barbet-puppy-one/400/600",
+      "id": "barbet-left",
+      "description": "A cute French Barbet puppy with curly brown fur sitting in a garden",
+      "imageUrl": "https://picsum.photos/seed/barbet-puppy-left/400/600",
       "imageHint": "barbet puppy"
     },
     {
-      "id": "barbet-puppy-2",
-      "description": "An adorable fluffy French Barbet puppy",
-      "imageUrl": "https://picsum.photos/seed/barbet-puppy-two/400/600",
+      "id": "barbet-right",
+      "description": "An adorable fluffy French Barbet puppy looking at the camera",
+      "imageUrl": "https://picsum.photos/seed/barbet-puppy-right/400/600",
       "imageHint": "curly puppy"
     }
   ]
