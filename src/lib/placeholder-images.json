@@ -3,14 +3,14 @@
     {
       "id": "cute-heart-left",
       "description": "A beautiful and cute red heart",
-      "imageUrl": "https://picsum.photos/seed/heart123/400/600",
-      "imageHint": "cute heart"
+      "imageUrl": "https://picsum.photos/seed/love-red-77/400/600",
+      "imageHint": "red heart"
     },
     {
       "id": "cute-heart-right",
       "description": "Another lovely and cute decorative heart",
-      "imageUrl": "https://picsum.photos/seed/heart456/400/600",
-      "imageHint": "love heart"
+      "imageUrl": "https://picsum.photos/seed/pink-heart-88/400/600",
+      "imageHint": "pink heart"
     }
   ]
 }
