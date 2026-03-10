@@ -2,15 +2,15 @@
   "placeholderImages": [
     {
       "id": "cute-dog-left",
-      "description": "A very cute and fluffy dog looking happy",
-      "imageUrl": "https://picsum.photos/seed/dog-cute-1/400/600",
-      "imageHint": "cute dog"
+      "description": "An adorable fluffy puppy looking curious",
+      "imageUrl": "https://picsum.photos/seed/puppy-left-99/400/600",
+      "imageHint": "cute puppy"
     },
     {
       "id": "cute-dog-right",
-      "description": "An adorable puppy sitting in a cute pose",
-      "imageUrl": "https://picsum.photos/seed/dog-cute-2/400/600",
-      "imageHint": "cute dog"
+      "description": "A sweet little puppy sitting and tilting its head",
+      "imageUrl": "https://picsum.photos/seed/puppy-right-88/400/600",
+      "imageHint": "cute puppy"
     }
   ]
 }

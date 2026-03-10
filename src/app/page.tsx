@@ -22,8 +22,8 @@ export default function Home() {
       </div>
       
       <div className="w-full max-w-[1400px] flex items-center justify-center gap-4 md:gap-12 lg:gap-24 z-10 px-4">
-        {/* Left Side Dog Image */}
-        <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white -rotate-[8deg] shrink-0 opacity-80 hover:opacity-100 transition-opacity">
+        {/* Left Side Puppy Image */}
+        <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white -rotate-[8deg] shrink-0 opacity-100 transition-opacity">
           {dogLeft && (
             <Image 
               src={dogLeft.imageUrl} 
@@ -40,8 +40,8 @@ export default function Home() {
           <GameContainer />
         </div>
 
-        {/* Right Side Dog Image */}
-        <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[8deg] shrink-0 opacity-80 hover:opacity-100 transition-opacity">
+        {/* Right Side Puppy Image */}
+        <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[8deg] shrink-0 opacity-100 transition-opacity">
           {dogRight && (
             <Image 
               src={dogRight.imageUrl} 
