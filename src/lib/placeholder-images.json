@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "pookie-fluffy-puppy",
+      "description": "A very cute fluffy cream colored puppy looking up curiously",
+      "imageUrl": "https://picsum.photos/seed/pookie-puppy/400/600",
+      "imageHint": "fluffy puppy"
+    },
+    {
       "id": "barbet-puppy-1",
       "description": "A cute French Barbet puppy with curly fur",
       "imageUrl": "https://picsum.photos/seed/barbet1/400/600",
