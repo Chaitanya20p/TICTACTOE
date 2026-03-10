@@ -1,16 +1,16 @@
 {
   "placeholderImages": [
     {
-      "id": "cute-heart-left",
-      "description": "A beautiful and cute red heart",
-      "imageUrl": "https://picsum.photos/seed/heart-red-love-1/400/600",
-      "imageHint": "red heart"
+      "id": "cute-dog-left",
+      "description": "A very cute and fluffy dog looking happy",
+      "imageUrl": "https://picsum.photos/seed/dog-cute-1/400/600",
+      "imageHint": "cute dog"
     },
     {
-      "id": "cute-heart-right",
-      "description": "Another lovely and cute decorative heart",
-      "imageUrl": "https://picsum.photos/seed/heart-pink-love-2/400/600",
-      "imageHint": "pink heart"
+      "id": "cute-dog-right",
+      "description": "An adorable puppy sitting in a cute pose",
+      "imageUrl": "https://picsum.photos/seed/dog-cute-2/400/600",
+      "imageHint": "cute dog"
     }
   ]
 }

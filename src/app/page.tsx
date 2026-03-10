@@ -1,12 +1,11 @@
-
 import { GameContainer } from "@/components/game/game-container";
 import { Heart, Star } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Home() {
-  const heartLeft = PlaceHolderImages.find(img => img.id === 'cute-heart-left');
-  const heartRight = PlaceHolderImages.find(img => img.id === 'cute-heart-right');
+  const dogLeft = PlaceHolderImages.find(img => img.id === 'cute-dog-left');
+  const dogRight = PlaceHolderImages.find(img => img.id === 'cute-dog-right');
 
   return (
     <main className="h-screen bg-background selection:bg-primary/30 flex flex-col items-center justify-center relative overflow-hidden p-2">
@@ -23,15 +22,15 @@ export default function Home() {
       </div>
       
       <div className="w-full max-w-[1400px] flex items-center justify-center gap-4 md:gap-12 lg:gap-24 z-10 px-4">
-        {/* Left Side Heart Image */}
+        {/* Left Side Dog Image */}
         <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white -rotate-[8deg] shrink-0 opacity-80 hover:opacity-100 transition-opacity">
-          {heartLeft && (
+          {dogLeft && (
             <Image 
-              src={heartLeft.imageUrl} 
-              alt={heartLeft.description} 
+              src={dogLeft.imageUrl} 
+              alt={dogLeft.description} 
               fill 
               className="object-cover"
-              data-ai-hint={heartLeft.imageHint}
+              data-ai-hint={dogLeft.imageHint}
             />
           )}
         </div>
@@ -41,15 +40,15 @@ export default function Home() {
           <GameContainer />
         </div>
 
-        {/* Right Side Heart Image */}
+        {/* Right Side Dog Image */}
         <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[8deg] shrink-0 opacity-80 hover:opacity-100 transition-opacity">
-          {heartRight && (
+          {dogRight && (
             <Image 
-              src={heartRight.imageUrl} 
-              alt={heartRight.description} 
+              src={dogRight.imageUrl} 
+              alt={dogRight.description} 
               fill 
               className="object-cover"
-              data-ai-hint={heartRight.imageHint}
+              data-ai-hint={dogRight.imageHint}
             />
           )}
         </div>
