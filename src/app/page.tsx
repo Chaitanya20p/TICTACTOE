@@ -1,12 +1,11 @@
-
 import { GameContainer } from "@/components/game/game-container";
 import { Heart, Star } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Home() {
-  const dogLeft = PlaceHolderImages.find(img => img.id === 'cute-dog-left');
-  const dogRight = PlaceHolderImages.find(img => img.id === 'cute-dog-right');
+  const pinkLeft = PlaceHolderImages.find(img => img.id === 'pink-left');
+  const pinkRight = PlaceHolderImages.find(img => img.id === 'pink-right');
 
   return (
     <main className="h-screen bg-background selection:bg-primary/30 flex flex-col items-center justify-center relative overflow-hidden p-2">
@@ -23,15 +22,15 @@ export default function Home() {
       </div>
       
       <div className="w-full max-w-[1400px] flex items-center justify-center gap-4 md:gap-12 lg:gap-24 z-10 px-4">
-        {/* Left Side Puppy Image */}
+        {/* Left Side Pink Aesthetic Image */}
         <div className="hidden sm:block w-24 h-36 md:w-32 md:h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white -rotate-[8deg] shrink-0 transition-all">
-          {dogLeft && (
+          {pinkLeft && (
             <Image 
-              src={dogLeft.imageUrl} 
-              alt={dogLeft.description} 
+              src={pinkLeft.imageUrl} 
+              alt={pinkLeft.description} 
               fill 
               className="object-cover"
-              data-ai-hint={dogLeft.imageHint}
+              data-ai-hint={pinkLeft.imageHint}
             />
           )}
         </div>
@@ -41,15 +40,15 @@ export default function Home() {
           <GameContainer />
         </div>
 
-        {/* Right Side Puppy Image */}
+        {/* Right Side Pink Aesthetic Image */}
         <div className="hidden sm:block w-24 h-36 md:w-32 md:h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[8deg] shrink-0 transition-all">
-          {dogRight && (
+          {pinkRight && (
             <Image 
-              src={dogRight.imageUrl} 
-              alt={dogRight.description} 
+              src={pinkRight.imageUrl} 
+              alt={pinkRight.description} 
               fill 
               className="object-cover"
-              data-ai-hint={dogRight.imageHint}
+              data-ai-hint={pinkRight.imageHint}
             />
           )}
         </div>

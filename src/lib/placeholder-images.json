@@ -1,16 +1,16 @@
 {
   "placeholderImages": [
     {
-      "id": "cute-dog-left",
-      "description": "An adorable fluffy puppy looking curious",
-      "imageUrl": "https://picsum.photos/seed/dog-pookie-1/400/600",
-      "imageHint": "cute dog"
+      "id": "pink-left",
+      "description": "A beautiful soft pink aesthetic image",
+      "imageUrl": "https://picsum.photos/seed/pookie-pink-1/400/600",
+      "imageHint": "pink aesthetic"
     },
     {
-      "id": "cute-dog-right",
-      "description": "A sweet little puppy sitting and tilting its head",
-      "imageUrl": "https://picsum.photos/seed/dog-pookie-2/400/600",
-      "imageHint": "cute dog"
+      "id": "pink-right",
+      "description": "A lovely pink floral or abstract pattern",
+      "imageUrl": "https://picsum.photos/seed/pookie-pink-2/400/600",
+      "imageHint": "pink soft"
     }
   ]
 }
