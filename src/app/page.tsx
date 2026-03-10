@@ -1,11 +1,12 @@
+
 import { GameContainer } from "@/components/game/game-container";
 import { Heart, Star } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Home() {
-  const animalLeft = PlaceHolderImages.find(img => img.id === 'cute-animal-left');
-  const animalRight = PlaceHolderImages.find(img => img.id === 'cute-animal-right');
+  const heartLeft = PlaceHolderImages.find(img => img.id === 'cute-heart-left');
+  const heartRight = PlaceHolderImages.find(img => img.id === 'cute-heart-right');
 
   return (
     <main className="min-h-screen bg-background selection:bg-primary/30 py-2 px-4 flex flex-col items-center justify-center relative overflow-hidden">
@@ -21,40 +22,40 @@ export default function Home() {
         <Star className="w-10 h-10 fill-current" />
       </div>
       
-      <div className="w-full max-w-[1200px] flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-12 z-10">
+      <div className="w-full max-w-[1200px] flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-8 z-10">
         {/* Left Side Image */}
-        <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 xl:w-56 xl:h-80 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white -rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
-          {animalLeft && (
+        <div className="hidden md:block w-24 h-36 lg:w-32 lg:h-48 xl:w-40 xl:h-60 relative rounded-[1.5rem] overflow-hidden pookie-shadow border-4 border-white -rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+          {heartLeft && (
             <Image 
-              src={animalLeft.imageUrl} 
-              alt={animalLeft.description} 
+              src={heartLeft.imageUrl} 
+              alt={heartLeft.description} 
               fill 
               className="object-cover"
-              data-ai-hint={animalLeft.imageHint}
+              data-ai-hint={heartLeft.imageHint}
             />
           )}
         </div>
 
         {/* Game Container */}
-        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-md">
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-md shrink-0">
           <GameContainer />
         </div>
 
         {/* Right Side Image */}
-        <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 xl:w-56 xl:h-80 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
-          {animalRight && (
+        <div className="hidden md:block w-24 h-36 lg:w-32 lg:h-48 xl:w-40 xl:h-60 relative rounded-[1.5rem] overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+          {heartRight && (
             <Image 
-              src={animalRight.imageUrl} 
-              alt={animalRight.description} 
+              src={heartRight.imageUrl} 
+              alt={heartRight.description} 
               fill 
               className="object-cover"
-              data-ai-hint={animalRight.imageHint}
+              data-ai-hint={heartRight.imageHint}
             />
           )}
         </div>
       </div>
       
-      <footer className="mt-4 text-muted-foreground text-[10px] font-medium flex items-center gap-1.5 opacity-60">
+      <footer className="mt-2 text-muted-foreground text-[10px] font-medium flex items-center gap-1.5 opacity-60">
         <span>Made with</span>
         <Heart className="w-2.5 h-2.5 text-accent fill-accent animate-bounce" />
         <span>for Pookie</span>

@@ -1,16 +1,16 @@
 {
   "placeholderImages": [
     {
-      "id": "cute-animal-left",
-      "description": "A very cute and fluffy animal friend",
-      "imageUrl": "https://picsum.photos/seed/cute1/400/600",
-      "imageHint": "cute dog"
+      "id": "cute-heart-left",
+      "description": "A beautiful and cute red heart",
+      "imageUrl": "https://picsum.photos/seed/heart123/400/600",
+      "imageHint": "cute heart"
     },
     {
-      "id": "cute-animal-right",
-      "description": "Another adorable and fluffy animal friend",
-      "imageUrl": "https://picsum.photos/seed/cute2/400/600",
-      "imageHint": "cute cat"
+      "id": "cute-heart-right",
+      "description": "Another lovely and cute decorative heart",
+      "imageUrl": "https://picsum.photos/seed/heart456/400/600",
+      "imageHint": "love heart"
     }
   ]
 }
