@@ -116,41 +116,41 @@ export function GameContainer() {
 
   return (
     <div className="flex flex-col items-center justify-center w-full">
-      <div className="text-center mb-0 relative">
-        <div className="absolute -top-2 -right-6 text-accent animate-pulse">
-          <Sparkles className="w-4 h-4" />
+      <div className="text-center mb-2 relative">
+        <div className="absolute -top-4 -right-10 text-accent animate-pulse">
+          <Sparkles className="w-6 h-6" />
         </div>
-        <div className="flex items-center justify-center gap-2">
-          <Heart className="w-8 h-8 text-accent fill-accent animate-float" />
-          <h1 className="text-4xl sm:text-5xl font-black text-foreground tracking-tighter drop-shadow-sm">Pookie</h1>
+        <div className="flex items-center justify-center gap-3">
+          <Heart className="w-10 h-10 text-accent fill-current animate-float" />
+          <h1 className="text-5xl sm:text-6xl font-black text-foreground tracking-tighter drop-shadow-sm">Pookie</h1>
         </div>
       </div>
 
-      <div className="mb-2 w-full flex flex-col items-center">
+      <div className="mb-4 w-full flex flex-col items-center">
          <Tabs 
             value={difficulty} 
             onValueChange={(v) => setDifficulty(v as Difficulty)} 
-            className="w-full max-w-[150px]"
+            className="w-full max-w-[200px]"
           >
-          <TabsList className="grid w-full grid-cols-3 bg-white/60 backdrop-blur-sm border-2 border-primary/10 rounded-full h-6 p-0.5 pookie-shadow">
+          <TabsList className="grid w-full grid-cols-3 bg-white/80 backdrop-blur-sm border-2 border-primary/10 rounded-full h-8 p-1 pookie-shadow">
             <TabsTrigger 
               value="Easy" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[7px] font-bold uppercase tracking-wider h-5"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[9px] font-bold uppercase tracking-wider h-6"
             >
               Easy
             </TabsTrigger>
             <TabsTrigger 
               value="Medium" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[7px] font-bold uppercase tracking-wider h-5"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[9px] font-bold uppercase tracking-wider h-6"
             >
               Mid
             </TabsTrigger>
             <TabsTrigger 
               value="Hard" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[7px] font-bold uppercase tracking-wider h-5"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[9px] font-bold uppercase tracking-wider h-6"
             >
               Hard
             </TabsTrigger>
@@ -160,7 +160,7 @@ export function GameContainer() {
 
       <GameStatus status={gameStatus} isThinking={isThinking} />
 
-      <div className="grid grid-cols-3 gap-1.5 w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] bg-white/40 backdrop-blur-md p-1.5 rounded-[1rem] pookie-shadow border-2 border-white relative overflow-hidden">
+      <div className="grid grid-cols-3 gap-2.5 w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] bg-white/40 backdrop-blur-md p-2.5 rounded-[1.5rem] pookie-shadow border-2 border-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none pookie-gradient" />
         
         {board.map((val, idx) => (
@@ -174,18 +174,18 @@ export function GameContainer() {
         ))}
       </div>
 
-      <div className="w-full max-w-[260px]">
+      <div className="w-full max-w-[380px]">
         <AiCommentary commentary={commentary} isLoading={isCommentaryLoading} />
       </div>
 
-      <div className="mt-2">
+      <div className="mt-4">
         <Button
           onClick={resetGame}
           variant="default"
           size="sm"
-          className="rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-tight shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 active:scale-95 bg-primary text-primary-foreground border-b-2 border-primary/30 h-7"
+          className="rounded-full px-5 py-2 text-[11px] font-black uppercase tracking-tight shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 active:scale-95 bg-primary text-primary-foreground border-b-4 border-primary/40 h-10"
         >
-          <RotateCcw className="mr-1 h-2.5 w-2.5" />
+          <RotateCcw className="mr-2 h-3.5 w-3.5" />
           Play Again
         </Button>
       </div>
