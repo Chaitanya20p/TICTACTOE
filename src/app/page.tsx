@@ -22,9 +22,9 @@ export default function Home() {
         <Star className="w-10 h-10 fill-current" />
       </div>
       
-      <div className="w-full max-w-[1200px] flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-12 z-10">
+      <div className="w-full max-w-[1200px] flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-12 z-10">
         {/* Left Side Image - Barbet Puppy */}
-        <div className="hidden lg:block w-40 h-60 xl:w-56 xl:h-80 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white -rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+        <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 xl:w-56 xl:h-80 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white -rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
           {barbetLeft && (
             <Image 
               src={barbetLeft.imageUrl} 
@@ -42,7 +42,7 @@ export default function Home() {
         </div>
 
         {/* Right Side Image - Barbet Puppy */}
-        <div className="hidden lg:block w-40 h-60 xl:w-56 xl:h-80 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+        <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 xl:w-56 xl:h-80 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
           {barbetRight && (
             <Image 
               src={barbetRight.imageUrl} 

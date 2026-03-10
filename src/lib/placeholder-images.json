@@ -3,13 +3,13 @@
     {
       "id": "barbet-left",
       "description": "A cute French Barbet puppy with curly brown fur sitting in a garden",
-      "imageUrl": "https://picsum.photos/seed/barbet-puppy-left/400/600",
+      "imageUrl": "https://picsum.photos/seed/237/400/600",
       "imageHint": "barbet puppy"
     },
     {
       "id": "barbet-right",
       "description": "An adorable fluffy French Barbet puppy looking at the camera",
-      "imageUrl": "https://picsum.photos/seed/barbet-puppy-right/400/600",
+      "imageUrl": "https://picsum.photos/seed/dog-puppy/400/600",
       "imageHint": "curly puppy"
     }
   ]
