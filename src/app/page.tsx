@@ -22,9 +22,9 @@ export default function Home() {
         <Star className="w-10 h-10 fill-current" />
       </div>
       
-      <div className="w-full max-w-[1400px] flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-16 z-10">
+      <div className="w-full max-w-[1400px] flex flex-col lg:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-16 z-10">
         {/* Left Side Image - Barbet in garden */}
-        <div className="hidden md:block w-40 h-60 lg:w-48 lg:h-72 xl:w-64 xl:h-96 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white -rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+        <div className="hidden lg:block w-48 h-72 xl:w-64 xl:h-96 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white -rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
           {barbetGarden && (
             <Image 
               src={barbetGarden.imageUrl} 
@@ -42,7 +42,7 @@ export default function Home() {
         </div>
 
         {/* Right Side Image - The fluffy puppy */}
-        <div className="hidden md:block w-40 h-60 lg:w-48 lg:h-72 xl:w-64 xl:h-96 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+        <div className="hidden lg:block w-48 h-72 xl:w-64 xl:h-96 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
           {pookiePuppy && (
             <Image 
               src={pookiePuppy.imageUrl} 
