@@ -1,12 +1,11 @@
-
 import { GameContainer } from "@/components/game/game-container";
 import { Heart, Star } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Home() {
-  const barbetLeft = PlaceHolderImages.find(img => img.id === 'barbet-left');
-  const barbetRight = PlaceHolderImages.find(img => img.id === 'barbet-right');
+  const animalLeft = PlaceHolderImages.find(img => img.id === 'cute-animal-left');
+  const animalRight = PlaceHolderImages.find(img => img.id === 'cute-animal-right');
 
   return (
     <main className="min-h-screen bg-background selection:bg-primary/30 py-2 px-4 flex flex-col items-center justify-center relative overflow-hidden">
@@ -23,15 +22,15 @@ export default function Home() {
       </div>
       
       <div className="w-full max-w-[1200px] flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-12 z-10">
-        {/* Left Side Image - Barbet Puppy */}
+        {/* Left Side Image */}
         <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 xl:w-56 xl:h-80 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white -rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
-          {barbetLeft && (
+          {animalLeft && (
             <Image 
-              src={barbetLeft.imageUrl} 
-              alt={barbetLeft.description} 
+              src={animalLeft.imageUrl} 
+              alt={animalLeft.description} 
               fill 
               className="object-cover"
-              data-ai-hint={barbetLeft.imageHint}
+              data-ai-hint={animalLeft.imageHint}
             />
           )}
         </div>
@@ -41,15 +40,15 @@ export default function Home() {
           <GameContainer />
         </div>
 
-        {/* Right Side Image - Barbet Puppy */}
+        {/* Right Side Image */}
         <div className="hidden md:block w-32 h-48 lg:w-40 lg:h-60 xl:w-56 xl:h-80 relative rounded-[2rem] overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
-          {barbetRight && (
+          {animalRight && (
             <Image 
-              src={barbetRight.imageUrl} 
-              alt={barbetRight.description} 
+              src={animalRight.imageUrl} 
+              alt={animalRight.description} 
               fill 
               className="object-cover"
-              data-ai-hint={barbetRight.imageHint}
+              data-ai-hint={animalRight.imageHint}
             />
           )}
         </div>
