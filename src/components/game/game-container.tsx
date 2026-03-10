@@ -45,7 +45,7 @@ export function GameContainer() {
       });
       setCommentary(response.commentary);
     } catch (error) {
-      console.error("Failed to fetch commentary:", error);
+      // Error handled silently for UX
     } finally {
       setIsCommentaryLoading(false);
     }
@@ -106,7 +106,7 @@ export function GameContainer() {
           setGameStatus("Your Turn");
           updateCommentary(newBoard, "Your Turn", lastPlayerMove, aiMove.toString());
         }
-      }, 1200);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [isXNext, board, winningCombo, gameStatus, lastPlayerMove, updateCommentary, difficulty]);
@@ -115,14 +115,14 @@ export function GameContainer() {
   const hasWinner = !!checkWinner(board);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-      <div className="text-center mb-2 relative">
-        <div className="absolute -top-2 -right-4 text-accent animate-pulse">
+    <div className="flex flex-col items-center justify-center w-full">
+      <div className="text-center mb-1 relative">
+        <div className="absolute -top-1 -right-4 text-accent animate-pulse">
           <Sparkles className="w-3 h-3" />
         </div>
         <div className="flex items-center justify-center gap-2">
-          <Heart className="w-5 h-5 text-accent fill-accent" />
-          <h1 className="text-xl font-extrabold text-foreground tracking-tight">Pookie Plays</h1>
+          <Heart className="w-6 h-6 text-accent fill-accent" />
+          <h1 className="text-3xl font-black text-foreground tracking-tighter drop-shadow-sm">Pookie Plays</h1>
         </div>
       </div>
 
@@ -130,27 +130,27 @@ export function GameContainer() {
          <Tabs 
             value={difficulty} 
             onValueChange={(v) => setDifficulty(v as Difficulty)} 
-            className="w-full max-w-[220px]"
+            className="w-full max-w-[180px]"
           >
-          <TabsList className="grid w-full grid-cols-3 bg-white/60 backdrop-blur-sm border-2 border-primary/10 rounded-full h-8 p-1 pookie-shadow">
+          <TabsList className="grid w-full grid-cols-3 bg-white/60 backdrop-blur-sm border-2 border-primary/10 rounded-full h-7 p-0.5 pookie-shadow">
             <TabsTrigger 
               value="Easy" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[9px] font-bold uppercase tracking-wider h-6"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[8px] font-bold uppercase tracking-wider h-6"
             >
               Easy
             </TabsTrigger>
             <TabsTrigger 
               value="Medium" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[9px] font-bold uppercase tracking-wider h-6"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[8px] font-bold uppercase tracking-wider h-6"
             >
               Mid
             </TabsTrigger>
             <TabsTrigger 
               value="Hard" 
               disabled={isGameActive && !hasWinner} 
-              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[9px] font-bold uppercase tracking-wider h-6"
+              className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all text-[8px] font-bold uppercase tracking-wider h-6"
             >
               Hard
             </TabsTrigger>
@@ -160,7 +160,7 @@ export function GameContainer() {
 
       <GameStatus status={gameStatus} isThinking={isThinking} />
 
-      <div className="grid grid-cols-3 gap-2 w-full aspect-square bg-white/40 backdrop-blur-md p-3 rounded-[1.25rem] pookie-shadow border-2 border-white relative overflow-hidden">
+      <div className="grid grid-cols-3 gap-1.5 w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] bg-white/40 backdrop-blur-md p-2 rounded-[1rem] pookie-shadow border-2 border-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none pookie-gradient" />
         
         {board.map((val, idx) => (
@@ -174,16 +174,18 @@ export function GameContainer() {
         ))}
       </div>
 
-      <AiCommentary commentary={commentary} isLoading={isCommentaryLoading} />
+      <div className="w-full max-w-[280px]">
+        <AiCommentary commentary={commentary} isLoading={isCommentaryLoading} />
+      </div>
 
-      <div className="mt-4">
+      <div className="mt-3">
         <Button
           onClick={resetGame}
           variant="default"
           size="sm"
-          className="rounded-full px-6 py-4 text-md font-bold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 bg-primary text-primary-foreground border-b-4 border-primary/30 h-auto"
+          className="rounded-full px-4 py-1.5 text-xs font-bold shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 active:scale-95 bg-primary text-primary-foreground border-b-2 border-primary/30 h-auto"
         >
-          <RotateCcw className="mr-2 h-4 w-4" />
+          <RotateCcw className="mr-1.5 h-3 w-3" />
           Play Again
         </Button>
       </div>

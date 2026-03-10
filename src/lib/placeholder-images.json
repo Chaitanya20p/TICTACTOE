@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "cute-puppy",
+      "description": "A very cute puppy looking happy",
+      "imageUrl": "https://picsum.photos/seed/pookie-puppy/400/600",
+      "imageHint": "cute puppy"
+    },
+    {
+      "id": "cute-kitten",
+      "description": "A tiny fluffy kitten",
+      "imageUrl": "https://picsum.photos/seed/pookie-kitten/400/600",
+      "imageHint": "cute kitten"
+    }
+  ]
 }

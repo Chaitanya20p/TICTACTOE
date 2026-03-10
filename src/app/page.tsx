@@ -1,41 +1,62 @@
 import { GameContainer } from "@/components/game/game-container";
 import { Heart, Star, Sparkles, Cloud } from "lucide-react";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Home() {
+  const puppy = PlaceHolderImages.find(img => img.id === 'cute-puppy');
+  const kitten = PlaceHolderImages.find(img => img.id === 'cute-kitten');
+
   return (
-    <main className="min-h-screen bg-background selection:bg-primary/30 py-4 px-4 flex flex-col items-center justify-center relative overflow-hidden">
+    <main className="min-h-screen bg-background selection:bg-primary/30 py-2 px-4 flex flex-col items-center justify-center relative overflow-hidden">
       {/* Decorative blurred background elements */}
       <div className="fixed top-[-5%] left-[-5%] w-[30vw] h-[30vw] bg-accent/10 rounded-full blur-[100px] -z-10 animate-pulse" />
       <div className="fixed bottom-[-5%] right-[-5%] w-[40vw] h-[40vw] bg-secondary/10 rounded-full blur-[120px] -z-10 animate-pulse" />
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[150px] -z-10" />
       
       {/* Floating cute icons */}
-      <div className="fixed top-[15%] left-[10%] text-accent/20 animate-float-slow -z-10">
-        <Heart className="w-16 h-16 fill-current" />
-      </div>
-      <div className="fixed top-[20%] right-[15%] text-primary/20 animate-float-fast -z-10">
-        <Star className="w-12 h-12 fill-current" />
-      </div>
-      <div className="fixed bottom-[20%] left-[12%] text-secondary/20 animate-float-fast -z-10">
-        <Sparkles className="w-10 h-10" />
-      </div>
-      <div className="fixed bottom-[15%] right-[10%] text-accent/20 animate-float-slow -z-10">
+      <div className="fixed top-[10%] left-[5%] text-accent/20 animate-float-slow -z-10">
         <Heart className="w-12 h-12 fill-current" />
       </div>
-      <div className="fixed top-[40%] right-[5%] text-primary/10 animate-float-slow -z-10">
-        <Cloud className="w-20 h-20 fill-current" />
-      </div>
-      <div className="fixed bottom-[40%] left-[5%] text-secondary/10 animate-float-fast -z-10">
-        <Cloud className="w-16 h-16 fill-current" />
+      <div className="fixed top-[15%] right-[8%] text-primary/20 animate-float-fast -z-10">
+        <Star className="w-10 h-10 fill-current" />
       </div>
       
-      <div className="w-full max-w-md z-10">
-        <GameContainer />
+      <div className="w-full max-w-5xl flex items-center justify-center gap-4 z-10">
+        {/* Left Image - hidden on very small screens */}
+        <div className="hidden lg:block w-48 h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[-3deg] hover:rotate-0 transition-transform duration-500">
+          {puppy && (
+            <Image 
+              src={puppy.imageUrl} 
+              alt={puppy.description} 
+              fill 
+              className="object-cover"
+              data-ai-hint={puppy.imageHint}
+            />
+          )}
+        </div>
+
+        {/* Game Container */}
+        <div className="w-full max-w-xs sm:max-w-sm">
+          <GameContainer />
+        </div>
+
+        {/* Right Image - hidden on very small screens */}
+        <div className="hidden lg:block w-48 h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[3deg] hover:rotate-0 transition-transform duration-500">
+          {kitten && (
+            <Image 
+              src={kitten.imageUrl} 
+              alt={kitten.description} 
+              fill 
+              className="object-cover"
+              data-ai-hint={kitten.imageHint}
+            />
+          )}
+        </div>
       </div>
       
-      <footer className="mt-6 text-muted-foreground text-xs font-medium flex items-center gap-2">
+      <footer className="mt-4 text-muted-foreground text-[10px] font-medium flex items-center gap-1.5">
         <span>Made with</span>
-        <Heart className="w-3 h-3 text-accent fill-accent animate-bounce" />
+        <Heart className="w-2.5 h-2.5 text-accent fill-accent animate-bounce" />
         <span>for Pookie</span>
       </footer>
     </main>
