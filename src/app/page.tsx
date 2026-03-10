@@ -1,11 +1,11 @@
 import { GameContainer } from "@/components/game/game-container";
-import { Heart, Star, Sparkles, Cloud } from "lucide-react";
+import { Heart, Star } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Home() {
-  const puppy = PlaceHolderImages.find(img => img.id === 'cute-puppy');
-  const kitten = PlaceHolderImages.find(img => img.id === 'cute-kitten');
+  const barbet1 = PlaceHolderImages.find(img => img.id === 'barbet-puppy-1');
+  const barbet2 = PlaceHolderImages.find(img => img.id === 'barbet-puppy-2');
 
   return (
     <main className="min-h-screen bg-background selection:bg-primary/30 py-2 px-4 flex flex-col items-center justify-center relative overflow-hidden">
@@ -21,16 +21,16 @@ export default function Home() {
         <Star className="w-10 h-10 fill-current" />
       </div>
       
-      <div className="w-full max-w-5xl flex items-center justify-center gap-4 z-10">
-        {/* Left Image - hidden on very small screens */}
-        <div className="hidden lg:block w-48 h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[-3deg] hover:rotate-0 transition-transform duration-500">
-          {puppy && (
+      <div className="w-full max-w-6xl flex items-center justify-center gap-4 sm:gap-8 z-10">
+        {/* Left Image - French Barbet Puppy */}
+        <div className="hidden xl:block w-40 h-60 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[-4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+          {barbet1 && (
             <Image 
-              src={puppy.imageUrl} 
-              alt={puppy.description} 
+              src={barbet1.imageUrl} 
+              alt={barbet1.description} 
               fill 
               className="object-cover"
-              data-ai-hint={puppy.imageHint}
+              data-ai-hint={barbet1.imageHint}
             />
           )}
         </div>
@@ -40,21 +40,21 @@ export default function Home() {
           <GameContainer />
         </div>
 
-        {/* Right Image - hidden on very small screens */}
-        <div className="hidden lg:block w-48 h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[3deg] hover:rotate-0 transition-transform duration-500">
-          {kitten && (
+        {/* Right Image - French Barbet Puppy */}
+        <div className="hidden xl:block w-40 h-60 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[4deg] hover:rotate-0 transition-transform duration-500 shrink-0">
+          {barbet2 && (
             <Image 
-              src={kitten.imageUrl} 
-              alt={kitten.description} 
+              src={barbet2.imageUrl} 
+              alt={barbet2.description} 
               fill 
               className="object-cover"
-              data-ai-hint={kitten.imageHint}
+              data-ai-hint={barbet2.imageHint}
             />
           )}
         </div>
       </div>
       
-      <footer className="mt-4 text-muted-foreground text-[10px] font-medium flex items-center gap-1.5">
+      <footer className="mt-2 text-muted-foreground text-[10px] font-medium flex items-center gap-1.5 opacity-60">
         <span>Made with</span>
         <Heart className="w-2.5 h-2.5 text-accent fill-accent animate-bounce" />
         <span>for Pookie</span>

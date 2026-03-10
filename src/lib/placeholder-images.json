@@ -1,16 +1,16 @@
 {
   "placeholderImages": [
     {
-      "id": "cute-puppy",
-      "description": "A very cute puppy looking happy",
-      "imageUrl": "https://picsum.photos/seed/pookie-puppy/400/600",
-      "imageHint": "cute puppy"
+      "id": "barbet-puppy-1",
+      "description": "A cute French Barbet puppy with curly fur",
+      "imageUrl": "https://picsum.photos/seed/barbet1/400/600",
+      "imageHint": "barbet puppy"
     },
     {
-      "id": "cute-kitten",
-      "description": "A tiny fluffy kitten",
-      "imageUrl": "https://picsum.photos/seed/pookie-kitten/400/600",
-      "imageHint": "cute kitten"
+      "id": "barbet-puppy-2",
+      "description": "An adorable fluffy French Barbet puppy",
+      "imageUrl": "https://picsum.photos/seed/barbet2/400/600",
+      "imageHint": "curly puppy"
     }
   ]
 }
