@@ -1,3 +1,4 @@
+
 import { GameContainer } from "@/components/game/game-container";
 import { Heart, Star } from "lucide-react";
 import Image from "next/image";
@@ -23,7 +24,7 @@ export default function Home() {
       
       <div className="w-full max-w-[1400px] flex items-center justify-center gap-4 md:gap-12 lg:gap-24 z-10 px-4">
         {/* Left Side Puppy Image */}
-        <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white -rotate-[8deg] shrink-0 opacity-100 transition-opacity">
+        <div className="hidden sm:block w-24 h-36 md:w-32 md:h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white -rotate-[8deg] shrink-0 transition-all">
           {dogLeft && (
             <Image 
               src={dogLeft.imageUrl} 
@@ -41,7 +42,7 @@ export default function Home() {
         </div>
 
         {/* Right Side Puppy Image */}
-        <div className="hidden md:block w-32 h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[8deg] shrink-0 opacity-100 transition-opacity">
+        <div className="hidden sm:block w-24 h-36 md:w-32 md:h-48 lg:w-48 lg:h-72 relative rounded-3xl overflow-hidden pookie-shadow border-4 border-white rotate-[8deg] shrink-0 transition-all">
           {dogRight && (
             <Image 
               src={dogRight.imageUrl} 
