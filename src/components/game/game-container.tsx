@@ -14,6 +14,7 @@ export function GameContainer() {
   const [isXNext, setIsXNext] = useState(true);
   const [gameStatus, setGameStatus] = useState("Your Turn");
   const [isThinking, setIsThinking] = useState(false);
+  const [isCommentaryLoading, setIsCommentaryLoading] = useState(false);
   const [commentary, setCommentary] = useState("Hi there! I'm Pookie. Let's play!");
   const [winningCombo, setWinningCombo] = useState<number[] | null>(null);
   const [lastPlayerMove, setLastPlayerMove] = useState<string | undefined>(undefined);
@@ -24,6 +25,7 @@ export function GameContainer() {
     setIsXNext(true);
     setGameStatus("Your Turn");
     setIsThinking(false);
+    setIsCommentaryLoading(false);
     setWinningCombo(null);
     setLastPlayerMove(undefined);
     setLastAiMove(undefined);
@@ -31,6 +33,7 @@ export function GameContainer() {
   };
 
   const updateCommentary = useCallback(async (currentBoard: string[], currentStatus: string, playerM?: string, aiM?: string) => {
+    setIsCommentaryLoading(true);
     try {
       const response = await aiGameCommentary({
         board: currentBoard,
@@ -41,6 +44,8 @@ export function GameContainer() {
       setCommentary(response.commentary);
     } catch (error) {
       console.error("Failed to fetch commentary:", error);
+    } finally {
+      setIsCommentaryLoading(false);
     }
   }, []);
 
@@ -128,7 +133,7 @@ export function GameContainer() {
         ))}
       </div>
 
-      <AiCommentary commentary={commentary} isThinking={isThinking} />
+      <AiCommentary commentary={commentary} isLoading={isCommentaryLoading} />
 
       <div className="mt-12">
         <Button
