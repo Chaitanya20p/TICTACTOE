@@ -1,3 +1,4 @@
+
 import { GameContainer } from "@/components/game/game-container";
 import { Heart, Star } from "lucide-react";
 import Image from "next/image";
