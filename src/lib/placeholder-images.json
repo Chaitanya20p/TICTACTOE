@@ -3,13 +3,13 @@
     {
       "id": "pink-left",
       "description": "A beautiful soft pink aesthetic image",
-      "imageUrl": "https://picsum.photos/seed/pookie-pink-1/400/600",
+      "imageUrl": "https://picsum.photos/seed/pookie-pink-vibe-1/400/600",
       "imageHint": "pink aesthetic"
     },
     {
       "id": "pink-right",
       "description": "A lovely pink floral or abstract pattern",
-      "imageUrl": "https://picsum.photos/seed/pookie-pink-2/400/600",
+      "imageUrl": "https://picsum.photos/seed/pookie-pink-vibe-2/400/600",
       "imageHint": "pink soft"
     }
   ]
