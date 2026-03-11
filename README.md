@@ -2,13 +2,14 @@
 
 A cute, pink-themed Tic Tac Toe game featuring Pookie, your sassy AI companion.
 
-## 🚀 Getting Started locally
+## 🚀 Getting Started Locally
 
 To run this project on your desktop:
 
-1. **Download**: Use the download icon in the Firebase Studio interface to get the source code as a ZIP file.
-2. **Extract**: Unzip the folder to your preferred location.
+1. **Download**: Click the **Download icon** (cloud with a down arrow) in the top-right header of the Firebase Studio interface.
+2. **Extract**: Unzip the downloaded file to your preferred location on your computer.
 3. **Install Dependencies**:
+   Open your terminal in the extracted folder and run:
    ```bash
    npm install
    ```
@@ -16,27 +17,29 @@ To run this project on your desktop:
    ```bash
    npm run dev
    ```
+   Your app will be available at `http://localhost:9002` (or the port shown in your terminal).
 
 ## 📦 Pushing to Git (GitHub/GitLab)
 
-1. **Initialize Git**:
+1. **Create Repo**: Create a new repository on GitHub (do not initialize it with a README or License).
+2. **Initialize Git**:
    ```bash
    git init
    ```
-2. **Add all files**:
+3. **Add all files**:
    ```bash
    git add .
    ```
-3. **Commit your changes**:
+4. **Commit your changes**:
    ```bash
    git commit -m "Initial commit of Pookie Plays"
    ```
-4. **Add Remote**:
-   Create a new repository on GitHub and link it:
+5. **Add Remote**:
+   Copy your repository URL and run:
    ```bash
    git remote add origin <your-repository-url>
    ```
-5. **Push**:
+6. **Push**:
    ```bash
    git push -u origin main
    ```
